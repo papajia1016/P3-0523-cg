@@ -9,7 +9,6 @@
 name: Build OpenWrt
 
 on:
-  repository_dispatch:
   release:
     types: [published]
   push:
@@ -38,8 +37,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
+    runs-on: ubuntu-18.04
 
     steps:
     - name: Checkout
